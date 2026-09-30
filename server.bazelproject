@@ -1,0 +1,4 @@
+directories:
+  server
+
+derive_targets_from_directories: true
