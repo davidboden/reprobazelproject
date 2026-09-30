@@ -68,6 +68,20 @@ naturally open in the IDE (e.g. the git repository root), and where you may
 have several independent Bazel workspaces and other (non-Bazel) projects
 side by side in the same repository.
 
+## Evidence: Project View Path shows `null`
+
+Opening **Settings → Build, Execution, Deployment → Build Tools → Bazel**
+while the repository root is open confirms the plugin never associated
+`server.bazelproject` with the project at all. The **Project View Path**
+field literally reads `null`, rather than pointing at
+`server.bazelproject` (or any project view file):
+
+![Project View Path showing null in Bazel settings](docs/projectview-null.png)
+
+This is consistent with the plugin never having discovered a Bazel
+workspace to sync in the first place, since no `MODULE.bazel`/`WORKSPACE`
+exists at the repository root.
+
 ## Steps to reproduce
 
 1. Clone this repository.
